@@ -18,6 +18,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from authentication import views
+from savvyfoods import views as foodviews
+from django.conf import settings
+from django.conf.urls.static import static
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     # Urls for all authentications and user profile infos
@@ -26,4 +30,17 @@ urlpatterns = [
     path('signup/',views.register,name="register"),
     path('password/reset/', views.password_reset, name='password_reset'),
     path('password/reset/<uidb64>/<token>/', views.password_reset_confirm, name='password_reset_confirm'),
+
+
+    path('junks/',foodviews.junks,name="junks"),
+    path('foods/',foodviews.foods,name="foods"),
 ]
+
+
+# Serve static files during development
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+
+
+urlpatterns+= staticfiles_urlpatterns()

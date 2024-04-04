@@ -5,11 +5,12 @@ import SplashScreen from './Screens/SplashScreen';
 import RegisterScreen from './Screens/RegisterScreen';
 import HomeScreen from './Screens/HomeScreen';
 import SearchSreen from './Screens/SearchSreen';
+import AddCartScreen from './Screens/AddCartScreen';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <SearchSreen/>
+      <HomeScreen/>
       <StatusBar style="auto" />
     </View>
   );
