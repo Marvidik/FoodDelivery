@@ -28,3 +28,8 @@ class Foods(models.Model):
 
 
 
+class SeenOrders(models.Model):
+    name=models.CharField(max_length=100)
+    address=models.CharField(max_length=100)
+    orders=models.TextField(max_length=100)
+    paid=models.BooleanField(default=False)
