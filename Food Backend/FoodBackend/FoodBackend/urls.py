@@ -34,6 +34,7 @@ urlpatterns = [
 
     path('junks/',foodviews.junks,name="junks"),
     path('foods/',foodviews.foods,name="foods"),
+    path('order/',foodviews.order,name="orders")
 ]
 
 
