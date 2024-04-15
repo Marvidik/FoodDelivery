@@ -4,6 +4,10 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 
+class Restaurant(models.Model):
+    name=models.CharField(max_length=100)
+    logo=models.ImageField(upload_to="retaurants_logos")
+
 class Junks(models.Model):
     junk=models.CharField(max_length=100)
     image=models.ImageField(upload_to="junks")
@@ -18,6 +22,7 @@ class Junks(models.Model):
 
 
 class Foods(models.Model):
+    restaurant=models.ForeignKey(Restaurant,on_delete=models.CASCADE,default=None)
     image=models.ImageField(upload_to="foods")
     fastfood=models.CharField(max_length=100)
     contents=models.CharField(max_length=100)
