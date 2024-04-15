@@ -7,6 +7,7 @@ from django.contrib.auth.models import User
 class Restaurant(models.Model):
     name=models.CharField(max_length=100)
     logo=models.ImageField(upload_to="retaurants_logos")
+    location=models.CharField(max_length=100,default=None)
 
 class Junks(models.Model):
     junk=models.CharField(max_length=100)
@@ -24,12 +25,11 @@ class Junks(models.Model):
 class Foods(models.Model):
     restaurant=models.ForeignKey(Restaurant,on_delete=models.CASCADE,default=None)
     image=models.ImageField(upload_to="foods")
-    fastfood=models.CharField(max_length=100)
     contents=models.CharField(max_length=100)
     rating=models.IntegerField()
     deliveryfee=models.IntegerField()
     deliverytime=models.CharField(max_length=20)
-    description=models.TextField()
+    availability=models.TextField()
     price=models.IntegerField()
 
 
